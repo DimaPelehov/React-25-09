@@ -68,12 +68,14 @@ const Test = () => {
             <Header
                 title="imported component Header in component Test"
                 num={47}
-                bgColor="blue"
-                test
+                // bgColor="blue"
+                // test
+                // ці два рядки працюють при 1 варіанті підключення стилів
             />
             <Header
                 title="це я перевикористав Header з іншим props"
-                bgColor="green"
+                // bgColor="green"
+                // це для першого варіанта підключення стилів
             />
             <Content />
         </>
