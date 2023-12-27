@@ -1,5 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import Header from './Header'
+// імпортуємо компонент Header з файлу Header
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 // const el = React.createElement('h1', { id: 'title' }, 'Hello React')
@@ -48,28 +50,7 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 // }
 // а це звичайна функція
 
-// --------------------------Props/ interface-------------------------------------------------
-type HeaderType = {
-    title: string
-    num?: number
-    // ? означає,що параметр опційний
-}
-// визначаєто тип props
-
-// interface IHeaderType {
-//     title: string
-// }
-// interface можна унаслідувати. Їх використовують,коли є складна логіка
-// В назві інтерфейсу ставлять першу літеру І
-
-const Header = (props: HeaderType) => {
-    return (
-        <h1>
-            Hello {props.title} {props.num}
-        </h1>
-    )
-}
-// виводимо відповідне значення props
+// ---------------------------------------------------------------------------------
 
 const Content = () => {
     return (
@@ -84,8 +65,16 @@ const Content = () => {
 const Test = () => {
     return (
         <>
-            <Header title="component Header in component Test" num={47} />
-            <Header title="це я перевикористав Header з іншим props" />
+            <Header
+                title="imported component Header in component Test"
+                num={47}
+                bgColor="blue"
+                test
+            />
+            <Header
+                title="це я перевикористав Header з іншим props"
+                bgColor="green"
+            />
             <Content />
         </>
         // <> пишуться для того, щоб не створювався додатковий div
