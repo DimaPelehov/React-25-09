@@ -21,27 +21,56 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 //         <p>It`s 2 paragraph</p>
 //     </div>
 // )
-
 // Для el ми повинні між <React.StrictMode>(внизу) прописувати {el}
 
-const App = () => {
+// const App = () => {
+//     return (
+//         <div>
+//             <h1>Hello second div in function App, {getNumber()}</h1>
+//             <p>
+//                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
+//                 Corrupti perferendis unde modi nostrum assumenda culpa
+//                 distinctio ducimus ab optio. Excepturi exercitationem laudantium
+//                 iusto obcaecati pariatur? Neque quas earum id est.
+//             </p>
+//             <p>It`s 2 paragraph in App</p>
+//         </div>
+//     )
+// }
+// App-arrow function - це компонент,його задача- повернути зовнішній вигляд.
+// App викликається між <React.StrictMode>(внизу) як <тег/>
+
+// function getNumber() {
+//     let a = 10
+//     return a
+// }
+// а це звичайна функція
+
+const Test = () => {
     return (
-        <div>
-            <h1>Hello second div in function App</h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti perferendis unde modi nostrum assumenda culpa
-                distinctio ducimus ab optio. Excepturi exercitationem laudantium
-                iusto obcaecati pariatur? Neque quas earum id est.
-            </p>
-            <p>It`s 2 paragraph in App</p>
-        </div>
+        <>
+            <Header />
+            <Content />
+        </>
+        // <> пишуться для того, щоб не створювався додатковий div
     )
 }
-//  App-arrow function - це компонент
+
+const Header = () => {
+    return <h1>Hello component Header in component Test</h1>
+}
+const Content = () => {
+    return (
+        <React.Fragment>
+            <p>It`s paragraphs create in component Content in component Test</p>
+            <p>It`s 2 paragraph in component Content.</p>
+        </React.Fragment>
+        // React.Fragment потрібен для того, щоб не створювався додатковий div
+    )
+}
 
 root.render(
     <React.StrictMode>
-        <App />
+        <Test />
     </React.StrictMode>
 )
