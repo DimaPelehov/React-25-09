@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client'
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 // const el = React.createElement('h1', { id: 'title' }, 'Hello React')
 // це застарілий спосіб, без jsx(розширений js)
+// ----------------------------------------------------------------------
 
 // const a = 10
 // const el = <h1 id="title">Hello React, {a}</h1>
@@ -22,6 +23,7 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 //     </div>
 // )
 // Для el ми повинні між <React.StrictMode>(внизу) прописувати {el}
+// ---------------------------------------------------------------------
 
 // const App = () => {
 //     return (
@@ -46,19 +48,29 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 // }
 // а це звичайна функція
 
-const Test = () => {
+// --------------------------Props/ interface-------------------------------------------------
+type HeaderType = {
+    title: string
+    num?: number
+    // ? означає,що параметр опційний
+}
+// визначаєто тип props
+
+// interface IHeaderType {
+//     title: string
+// }
+// interface можна унаслідувати. Їх використовують,коли є складна логіка
+// В назві інтерфейсу ставлять першу літеру І
+
+const Header = (props: HeaderType) => {
     return (
-        <>
-            <Header />
-            <Content />
-        </>
-        // <> пишуться для того, щоб не створювався додатковий div
+        <h1>
+            Hello {props.title} {props.num}
+        </h1>
     )
 }
+// виводимо відповідне значення props
 
-const Header = () => {
-    return <h1>Hello component Header in component Test</h1>
-}
 const Content = () => {
     return (
         <React.Fragment>
@@ -66,6 +78,18 @@ const Content = () => {
             <p>It`s 2 paragraph in component Content.</p>
         </React.Fragment>
         // React.Fragment потрібен для того, щоб не створювався додатковий div
+    )
+}
+
+const Test = () => {
+    return (
+        <>
+            <Header title="component Header in component Test" num={47} />
+            <Header title="це я перевикористав Header з іншим props" />
+            <Content />
+        </>
+        // <> пишуться для того, щоб не створювався додатковий div
+        // оскільки num ?- опційний параметр, ми можемо вказувати його тільки там, де нам потрібно
     )
 }
 
