@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Header from './Header'
-// імпортуємо компонент Header з файлу Header
+// імпортуємо компонент Header з файлу Header.tsx
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 // const el = React.createElement('h1', { id: 'title' }, 'Hello React')
@@ -73,9 +73,9 @@ const Test = () => {
                 // ці два рядки працюють при 1 варіанті підключення стилів
             />
             <Header
-                title="це я перевикористав Header з іншим props"
+                title="це я перевикористав Header з іншим title"
                 // bgColor="green"
-                // це для першого варіанта підключення стилів
+                // це для 1 варіанта підключення стилів
             />
             <Content />
         </>
