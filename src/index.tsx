@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import App from './layout/App'
 
 // ---три наступні рядки стосуються лише лекцій
 // import TrainingHeader from './TrainingHeader'
@@ -7,10 +8,6 @@ import ReactDOM from 'react-dom/client'
 // import TrainingContent from './TrainingContent'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
-
-const App = () => {
-    return <></>
-}
 
 root.render(
     <React.StrictMode>
