@@ -39,11 +39,11 @@ import clsx from 'clsx'
 
 // --------------------------Варіант 2 підключення стилів-(css, clsx)----------------------
 type HeaderType = {
-    title: string
+    text: string
     num?: number
 }
 
-const Header = ({ title, num }: HeaderType) => {
+const Header = ({ text, num }: HeaderType) => {
     return (
         // <h1 className="title">
         //     Hello {title} {num}
@@ -57,18 +57,18 @@ const Header = ({ title, num }: HeaderType) => {
         // аналогічна дія без clsx : <h1 className={`title ${num===47?'redBg':' '}`}>
 
         // використання css module
-        // <h1 className={classes.title}>
-        //     Hello {title} {num}
-        // </h1>
+        <h1 className={classes.title}>
+            Hello {text} {num}
+        </h1>
 
         // комбінація css module i clsx
-        <h1
-            className={clsx(`test ${classes.title}`, {
-                [classes.redBg]: num === 47,
-            })}
-        >
-            Hello {title} {num}
-        </h1>
+        // <h1
+        //     className={clsx(`test ${classes.title}`, {
+        //         [classes.redBg]: num === 47,
+        //     })}
+        // >
+        //     Hello {title} {num}
+        // </h1>
         // ми пишемо [classes.title] оскільки це значення динамічне (хеш-функція всередині постійно змінюється)
     )
 }
