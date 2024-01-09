@@ -1,7 +1,7 @@
-// import  './Header.scss'
+// import  './TrainingHeader.scss'
 // імпортуємо css або scss
-import classes from './Header.module.scss'
-// або clases(module)
+import classes from './TrainingHeader.module.scss'
+// або clases(module). Module нам потрібні для створення оригінальної назву класу за допомогою хеш-функції
 
 import clsx from 'clsx'
 // імпортуємо бібліотеку clsx(працює з сss/scss, з module- ні)
@@ -43,7 +43,7 @@ type HeaderType = {
     num?: number
 }
 
-const Header = ({ text, num }: HeaderType) => {
+const TrainingHeader = ({ text, num }: HeaderType) => {
     return (
         // <h1 className="title">
         //     Hello {title} {num}
@@ -73,5 +73,5 @@ const Header = ({ text, num }: HeaderType) => {
     )
 }
 
-export default Header
+export default TrainingHeader
 // експортуємо компонент Header

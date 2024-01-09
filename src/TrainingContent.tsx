@@ -1,4 +1,4 @@
-import './Content.css'
+import './TrainingContent.css'
 
 type ContentType = {
     textOne: string
@@ -6,7 +6,11 @@ type ContentType = {
     bgColor?: string
 }
 
-const Content = ({ textOne, textTwo, bgColor = 'yellow' }: ContentType) => {
+const TrainingContent = ({
+    textOne,
+    textTwo,
+    bgColor = 'yellow',
+}: ContentType) => {
     // якщо ми не задамо в index.tsx значення bgColor, то воно буде yellow за замовчуванням
 
     // 1 варіант задання стилів
@@ -26,4 +30,4 @@ const Content = ({ textOne, textTwo, bgColor = 'yellow' }: ContentType) => {
     )
 }
 
-export default Content
+export default TrainingContent

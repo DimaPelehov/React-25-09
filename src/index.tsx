@@ -1,10 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Header from './Header'
-// імпортуємо компонент Header з файлу Header.tsx
-import Content from './Content'
+import TrainingHeader from './TrainingHeader'
+// імпортуємо компонент TrainingHeader з файлу TrainingHeader.tsx
+import TrainingContent from './TrainingContent'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+
+// root.render(<React.StrictMode></React.StrictMode>)
+
+// ================================МАТЕРІАЛИ ЛЕКЦІЙ ПО React============================
+
 // const el = React.createElement('h1', { id: 'title' }, 'Hello React')
 // це застарілий спосіб, без jsx(розширений js)
 // ----------------------------------------------------------------------
@@ -28,22 +33,22 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 // Для el ми повинні між <React.StrictMode>(внизу) прописувати {el}
 // ---------------------------------------------------------------------
 
-// const App = () => {
+// const TrainingApp = () => {
 //     return (
 //         <div>
-//             <h1>Hello second div in function App, {getNumber()}</h1>
+//             <h1>Hello second div in function TrainingApp, {getNumber()}</h1>
 //             <p>
 //                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
 //                 Corrupti perferendis unde modi nostrum assumenda culpa
 //                 distinctio ducimus ab optio. Excepturi exercitationem laudantium
 //                 iusto obcaecati pariatur? Neque quas earum id est.
 //             </p>
-//             <p>It`s 2 paragraph in App</p>
+//             <p>It`s 2 paragraph in TrainingApp</p>
 //         </div>
 //     )
 // }
-// App-arrow function - це компонент,його задача- повернути зовнішній вигляд.
-// App викликається між <React.StrictMode>(внизу) як <тег/>
+// TrainingApp-arrow function - це компонент,його задача- повернути зовнішній вигляд.
+// TrainingApp викликається між <React.StrictMode>(внизу) як <тег/>
 
 // function getNumber() {
 //     let a = 10
@@ -53,7 +58,7 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 // ---------------------------------------------------------------------------------
 
-// const Content = () => {
+// const TrainingContent = () => {
 //     return (
 //         <React.Fragment>
 //             <p>It`s paragraphs create in component Content in component Test</p>
@@ -67,31 +72,33 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 const Test = () => {
     return (
         <>
-            <Header
-                text="imported component Header in component Test"
+            <TrainingHeader
+                text="imported component TrainingHeader in component Test"
                 num={47}
+                // ---
                 // bgColor="blue"
                 // test
-                // ці два рядки працюють при 1 варіанті підключення стилів
+                // ці два рядки працюють при 1 варіанті підключення стилів(через style)
             />
-            <Header
-                text="це я перевикористав Header з іншим title"
+            <TrainingHeader
+                text="це я перевикористав TrainingHeader з іншим пропсом text"
+                // ---
                 // bgColor="green"
-                // це для 1 варіанта підключення стилів
+                // це для 1 варіанта підключення стилів(через style)
             />
-            <Content
-                textOne="It`s paragraphs create in component Content in component Test"
-                textTwo="It`s 2 paragraph in component Content."
+            <TrainingContent
+                textOne="It`s paragraphs create in component TrainingContent in component Test"
+                textTwo="It`s 2 paragraph in component TrainingContent."
                 bgColor="purple"
             />
-            <Content
-                textOne="It`s 3 paragraphs create in component Content in component Test"
-                textTwo="It`s 4 paragraph in component Content."
+            <TrainingContent
+                textOne="It`s 3 paragraphs create in component TrainingContent in component Test"
+                textTwo="It`s 4 paragraph in component TrainingContent."
                 bgColor="red"
             />
-            <Content
-                textOne="It`s 5 paragraphs create in component Content in component Test"
-                textTwo="It`s 6 paragraph in component Content."
+            <TrainingContent
+                textOne="It`s 5 paragraphs create in component TrainingContent in component Test"
+                textTwo="It`s 6 paragraph in component TrainingContent."
                 // тут ми не задали bgColor, бо це опційний? параметр
             />
         </>
