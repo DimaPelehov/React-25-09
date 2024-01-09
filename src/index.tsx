@@ -1,12 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import TrainingHeader from './TrainingHeader'
+
+// ---три наступні рядки стосуються лише лекцій
+// import TrainingHeader from './TrainingHeader'
 // імпортуємо компонент TrainingHeader з файлу TrainingHeader.tsx
-import TrainingContent from './TrainingContent'
+// import TrainingContent from './TrainingContent'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
-// root.render(<React.StrictMode></React.StrictMode>)
+const App = () => {
+    return <></>
+}
+
+root.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
+)
 
 // ================================МАТЕРІАЛИ ЛЕКЦІЙ ПО React============================
 
@@ -69,46 +79,46 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 // }
 // цей Content можна видалити,оскільки під нього створено окремий файл tsx
 
-const Test = () => {
-    return (
-        <>
-            <TrainingHeader
-                text="imported component TrainingHeader in component Test"
-                num={47}
-                // ---
-                // bgColor="blue"
-                // test
-                // ці два рядки працюють при 1 варіанті підключення стилів(через style)
-            />
-            <TrainingHeader
-                text="це я перевикористав TrainingHeader з іншим пропсом text"
-                // ---
-                // bgColor="green"
-                // це для 1 варіанта підключення стилів(через style)
-            />
-            <TrainingContent
-                textOne="It`s paragraphs create in component TrainingContent in component Test"
-                textTwo="It`s 2 paragraph in component TrainingContent."
-                bgColor="purple"
-            />
-            <TrainingContent
-                textOne="It`s 3 paragraphs create in component TrainingContent in component Test"
-                textTwo="It`s 4 paragraph in component TrainingContent."
-                bgColor="red"
-            />
-            <TrainingContent
-                textOne="It`s 5 paragraphs create in component TrainingContent in component Test"
-                textTwo="It`s 6 paragraph in component TrainingContent."
-                // тут ми не задали bgColor, бо це опційний? параметр
-            />
-        </>
-        // <> пишуться для того, щоб не створювався додатковий div
-        // оскільки num ?- опційний параметр, ми можемо вказувати його тільки там, де нам потрібно
-    )
-}
+// const Test = () => {
+//     return (
+//         <>
+//             <TrainingHeader
+//                 text="imported component TrainingHeader in component Test"
+//                 num={47}
+//                 // ---
+//                 // bgColor="blue"
+//                 // test
+//                 // ці два рядки працюють при 1 варіанті підключення стилів(через style)
+//             />
+//             <TrainingHeader
+//                 text="це я перевикористав TrainingHeader з іншим пропсом text"
+//                 // ---
+//                 // bgColor="green"
+//                 // це для 1 варіанта підключення стилів(через style)
+//             />
+//             <TrainingContent
+//                 textOne="It`s paragraphs create in component TrainingContent in component Test"
+//                 textTwo="It`s 2 paragraph in component TrainingContent."
+//                 bgColor="purple"
+//             />
+//             <TrainingContent
+//                 textOne="It`s 3 paragraphs create in component TrainingContent in component Test"
+//                 textTwo="It`s 4 paragraph in component TrainingContent."
+//                 bgColor="red"
+//             />
+//             <TrainingContent
+//                 textOne="It`s 5 paragraphs create in component TrainingContent in component Test"
+//                 textTwo="It`s 6 paragraph in component TrainingContent."
+//                 // тут ми не задали bgColor, бо це опційний? параметр
+//             />
+//         </>
+//         // <> пишуться для того, щоб не створювався додатковий div
+//         // оскільки num ?- опційний параметр, ми можемо вказувати його тільки там, де нам потрібно
+//     )
+// }
 
-root.render(
-    <React.StrictMode>
-        <Test />
-    </React.StrictMode>
-)
+// root.render(
+//     <React.StrictMode>
+//         <Test />
+//     </React.StrictMode>
+// )
