@@ -17,20 +17,12 @@ type State = { count: number }
 // замінюємо функцію ProductListItem на class ProductListItem
 class ProductListItem extends Component<ProductListItemType, State> {
     // описуємо state і тут
-    constructor(props: ProductListItemType) {
-        super(props)
-        // super-спеціальний метод, що унаслідує constructor Component. Нам він потрібен для використання state
-        this.state = {
-            count: 1,
-        }
-        // робимо прив'язку контекста
-        this.onIncrementClick = this.onIncrementClick.bind(this)
-        this.onDecrementClick = this.onDecrementClick.bind(this)
-        // всередині constructor i render, this-завжди правильний(не undefined)
+    state = {
+        count: 1,
     }
 
     // Реалізація роботи лічильника(за допомогою функцій onIncrementClick і onDecrementClick)
-    onIncrementClick() {
+    onIncrementClick = () => {
         this.setState((prevState) => ({
             count: prevState.count + 1,
         }))
@@ -70,7 +62,7 @@ class ProductListItem extends Component<ProductListItemType, State> {
                     <div className="product-quantity">
                         <Button
                             variant="outlined"
-                            onClick={this.onDecrementClick}
+                            onClick={() => this.onDecrementClick()}
                         >
                             -
                         </Button>
