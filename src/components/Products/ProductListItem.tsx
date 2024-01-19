@@ -12,13 +12,14 @@ type ProductListItemType = {
 }
 
 // опишемо state
-type State = { count: number }
+type State = { count: number; color: string }
 
 // замінюємо функцію ProductListItem на class ProductListItem
 class ProductListItem extends Component<ProductListItemType, State> {
     // описуємо state і тут
     state = {
         count: 1,
+        color: 'green',
     }
 
     // Реалізація роботи лічильника(за допомогою функцій onIncrementClick і onDecrementClick)
@@ -32,6 +33,13 @@ class ProductListItem extends Component<ProductListItemType, State> {
     onDecrementClick() {
         this.setState((prevState) => ({
             count: prevState.count - 1,
+        }))
+    }
+
+    // зміна кольору
+    changeColor = () => {
+        this.setState((prevState) => ({
+            color: prevState.color === 'green' ? 'red' : 'green',
         }))
     }
 
@@ -58,6 +66,13 @@ class ProductListItem extends Component<ProductListItemType, State> {
                     <div className="product-features">
                         Capacity:{capacity} Gb
                     </div>
+                    <div>
+                        Color:
+                        <span className={`${this.state.color}`}>
+                            {this.state.color}
+                        </span>
+                    </div>
+                    <button onClick={this.changeColor}>Change color</button>
                     <div className="product-price">$ {price}</div>
                     <div className="product-quantity">
                         <Button
