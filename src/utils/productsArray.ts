@@ -5,6 +5,7 @@ export type Product={
     type?: string
     capacity: number
     price: number
+    image:string
 }
 // ми описали тип одного продукту
 
@@ -17,6 +18,7 @@ export const productsArray:Product[]=[{
     type: 'phone',
     capacity: 128,
     price: 1000,
+    image:'/images/iphone-black.webp'
 },{
     id:2,
     title: 'iPhone 14 Pro',
@@ -24,6 +26,7 @@ export const productsArray:Product[]=[{
     type: 'phone',
     capacity: 28,
     price: 2000,
+    image:'/images/iphone-gold.webp'
 },{
     id:3,
     title: 'iPhone 13 Pro',
@@ -31,6 +34,7 @@ export const productsArray:Product[]=[{
     type: 'phone',
     capacity: 8,
     price: 3000,
+    image:'/images/iphone-blue.webp'
 },{
     id:4,
     title: 'iPhone 12 Pro',
@@ -38,6 +42,7 @@ export const productsArray:Product[]=[{
     type: 'phone',
     capacity: 82,
     price: 4000,
+    image:'/images/iphone-green.webp'
 },{
     id:5,
     title: 'iPhone 11 Pro',
@@ -45,6 +50,7 @@ export const productsArray:Product[]=[{
     type: 'phone',
     capacity: 821,
     price: 5000,
+    image:'/images/iphone-pink.webp'
 },{
     id:6,
     title: 'iPhone 10 Pro',
@@ -52,4 +58,5 @@ export const productsArray:Product[]=[{
     type: 'phone',
     capacity: 88,
     price: 6000,
+    image:'/images/iphone-red.webp'
 }]
