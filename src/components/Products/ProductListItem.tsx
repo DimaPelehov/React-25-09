@@ -12,7 +12,7 @@ type ProductListItemType = {
 }
 
 // опишемо state
-type State = { count: number; color: string }
+type State = { count: number; color: string; disabled: boolean }
 
 // замінюємо функцію ProductListItem на class ProductListItem
 class ProductListItem extends Component<ProductListItemType, State> {
@@ -20,12 +20,14 @@ class ProductListItem extends Component<ProductListItemType, State> {
     state = {
         count: 1,
         color: 'green',
+        disabled: true,
     }
 
     // Реалізація роботи лічильника(за допомогою функцій onIncrementClick і onDecrementClick)
     onIncrementClick = () => {
         this.setState((prevState) => ({
             count: prevState.count + 1,
+            disabled: false,
         }))
         // setState-спеціальна функція,котра повертає новий state,адже його не можна просто змінити,бо state-об'єкт
     }
@@ -33,6 +35,7 @@ class ProductListItem extends Component<ProductListItemType, State> {
     onDecrementClick() {
         this.setState((prevState) => ({
             count: prevState.count - 1,
+            disabled: prevState.count - 1 < 2 ? true : false,
         }))
     }
 
@@ -78,6 +81,7 @@ class ProductListItem extends Component<ProductListItemType, State> {
                         <Button
                             variant="outlined"
                             onClick={() => this.onDecrementClick()}
+                            disabled={this.state.disabled}
                         >
                             -
                         </Button>
