@@ -1,6 +1,3 @@
-.product-list-item {
-}
-
 .product-title {
     font-size: 30px;
 }
@@ -31,7 +28,7 @@
 
 .product-img img {
     width: 150px;
-    height: auto;
+    height: 195px;
 }
 
 .product-quantity {
@@ -41,4 +38,11 @@
 
 .product-quantity input {
     text-align: center;
+}
+
+.green {
+    color: green;
+}
+.red {
+    color: red;
 }
