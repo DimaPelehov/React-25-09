@@ -12,7 +12,7 @@ type ProductListItemType = {
 }
 
 // опишемо state
-type State = { count: number; color: string; disabled: boolean }
+type State = { count: number; color: string; isShow: boolean }
 
 // замінюємо функцію ProductListItem на class ProductListItem
 class ProductListItem extends Component<ProductListItemType, State> {
@@ -20,14 +20,13 @@ class ProductListItem extends Component<ProductListItemType, State> {
     state = {
         count: 1,
         color: 'green',
-        disabled: true,
+        isShow: false,
     }
 
     // Реалізація роботи лічильника(за допомогою функцій onIncrementClick і onDecrementClick)
     onIncrementClick = () => {
         this.setState((prevState) => ({
             count: prevState.count + 1,
-            disabled: false,
         }))
         // setState-спеціальна функція,котра повертає новий state,адже його не можна просто змінити,бо state-об'єкт
     }
@@ -35,7 +34,6 @@ class ProductListItem extends Component<ProductListItemType, State> {
     onDecrementClick() {
         this.setState((prevState) => ({
             count: prevState.count - 1,
-            disabled: prevState.count - 1 < 2 ? true : false,
         }))
     }
 
@@ -43,6 +41,14 @@ class ProductListItem extends Component<ProductListItemType, State> {
     changeColor = () => {
         this.setState((prevState) => ({
             color: prevState.color === 'green' ? 'red' : 'green',
+        }))
+    }
+
+    // зміна видимості блоку
+    changeShow = () => {
+        this.setState((prevState) => ({
+            isShow: !prevState.isShow,
+            // запис означає,що при кожному виклику функції isShow дорівнює значенню протилежному від попереднього
         }))
     }
 
@@ -76,12 +82,30 @@ class ProductListItem extends Component<ProductListItemType, State> {
                         </span>
                     </div>
                     <button onClick={this.changeColor}>Change color</button>
+                    <div>
+                        <button onClick={this.changeShow}>
+                            Toggle description block
+                        </button>
+                    </div>
+                    {this.state.isShow ? (
+                        <div>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Magnam vel dignissimos
+                                consectetur non animi aliquam sit architecto
+                                tempora, blanditiis id, accusamus quibusdam.
+                                Distinctio, quis! Cum vitae et odio fugiat
+                                dolor.
+                            </p>
+                        </div>
+                    ) : null}
+
                     <div className="product-price">$ {price}</div>
                     <div className="product-quantity">
                         <Button
                             variant="outlined"
                             onClick={() => this.onDecrementClick()}
-                            disabled={this.state.disabled}
+                            disabled={this.state.count <= 1}
                         >
                             -
                         </Button>
