@@ -22,7 +22,6 @@ const Header = ({ productsInCart }: HeaderType) => {
                 <Toolbar>
                     <Logo />
                     <Menu />
-
                     <CartHeader productsInCart={productsInCart} />
                 </Toolbar>
             </Container>

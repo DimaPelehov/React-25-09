@@ -1,3 +1,5 @@
+import { productsArray } from 'utils/productsArray'
+
 type CartHeaderType = {
     productsInCart: { [id: number]: number }
 }
@@ -7,7 +9,8 @@ const CartHeader = ({ productsInCart }: CartHeaderType) => {
         <div>
             {Object.keys(productsInCart).map((productId) => (
                 <div key={productId}>
-                    {productId}:{productsInCart[+productId]}
+                    {productsArray[+productId - 1].title}:
+                    {productsInCart[+productId]}
                 </div>
             ))}
         </div>
