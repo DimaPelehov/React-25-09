@@ -1,12 +1,18 @@
+import { productsArray } from 'utils/productsArray'
+
 type CartHeaderType = {
-    cartData: { totalCount: number; totalPrice: number }
+    productsInCart: { [id: number]: number }
 }
 
-const CartHeader = ({ cartData }: CartHeaderType) => {
+const CartHeader = ({ productsInCart }: CartHeaderType) => {
     return (
         <div>
-            <div>{cartData.totalCount}</div>
-            <div>${cartData.totalPrice}</div>
+            {Object.keys(productsInCart).map((productId) => (
+                <div key={productId}>
+                    {productsArray[+productId - 1].title}:
+                    {productsInCart[+productId]}
+                </div>
+            ))}
         </div>
     )
 }

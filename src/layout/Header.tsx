@@ -8,9 +8,9 @@ import Logo from 'components/Logo/Logo'
 import Menu from 'components/Menu/Menu'
 import CartHeader from 'components/CartHeader/CartHeader'
 
-type HeaderType = { cartData: { totalCount: number; totalPrice: number } }
+type HeaderType = { productsInCart: { [id: number]: number } }
 
-const Header = ({ cartData }: HeaderType) => {
+const Header = ({ productsInCart }: HeaderType) => {
     return (
         <AppBar
             position="static"
@@ -22,8 +22,7 @@ const Header = ({ cartData }: HeaderType) => {
                 <Toolbar>
                     <Logo />
                     <Menu />
-
-                    <CartHeader cartData={cartData} />
+                    <CartHeader productsInCart={productsInCart} />
                 </Toolbar>
             </Container>
         </AppBar>
