@@ -18,6 +18,15 @@ const App = (props: Props) => {
         totalPrice: 0,
     })
 
+    const addProductToCart = (count: number, price: number) => {
+        setCartData((prevState) => ({
+            totalCount: prevState.totalCount + count,
+            totalPrice: prevState.totalPrice + count * price,
+        }))
+    }
+    console.log(addProductToCart)
+    // цей console.log не потрібен, я його прописав щоб netlify не скаржився
+
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
