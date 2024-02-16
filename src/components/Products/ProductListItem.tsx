@@ -95,7 +95,7 @@ const ProductListItem = ({
 //     }
 
     // Реалізація роботи лічильника(за допомогою функцій onIncrementClick і onDecrementClick)
-    onIncrementClick = () => {
+    // onIncrementClick = () => {
     //     this.setState((prevState) => ({
     //         count: prevState.count + 1,
     //     }))
