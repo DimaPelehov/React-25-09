@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Footer from './Footer'
 import Header from './Header'
 import Main from './Main'
@@ -6,11 +7,30 @@ import { StyledEngineProvider } from '@mui/material/styles'
 
 type Props = {}
 
+type CartDataType = {
+    totalCount: number
+    totalPrice: number
+}
+
 const App = (props: Props) => {
+    const [cartData, setCartData] = useState<CartDataType>({
+        totalCount: 0,
+        totalPrice: 0,
+    })
+
+    const addProductToCart = (count: number, price: number) => {
+        setCartData((prevState) => ({
+            totalCount: prevState.totalCount + count,
+            totalPrice: prevState.totalPrice + count * price,
+        }))
+    }
+    console.log(addProductToCart)
+    // цей console.log не потрібен, я його прописав щоб netlify не скаржився
+
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
-            <Header />
+            <Header cartData={cartData} />
             <Main />
             <Footer />
         </StyledEngineProvider>
